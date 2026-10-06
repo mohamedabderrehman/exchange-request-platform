@@ -92,3 +92,22 @@ Open an issue describing a reproducible problem, expected behavior and component
 ## License and attribution
 
 Source code is MIT licensed. Third-party dependencies and assets retain their own terms; see [attribution](THIRD_PARTY_NOTICES.md).
+
+<!-- release-presentation -->
+
+## Actual application interface
+
+![Exchange Request Platform — interface with synthetic demonstration data](docs/screenshots/desktop.jpg)
+
+Captured from the local application with synthetic records. This does not establish production usage or Android device verification.
+
+## Verification and deeper reading
+
+PHP syntax and HTTP checks passed: synthetic intake without a proof image, invalid/zero/non-finite amount rejection, unsupported currency rejection, and rejection of forged image MIME/content. TLS verification is enabled in source. Live provider delivery and financial execution are not claimed.
+
+The receipt identifies request intake, not completed financial execution. Public tracking is historical presentation and does not expose a live transaction ledger. Valid proof/provider-failure cases need further checks before collecting real requests.
+
+- [Case study](docs/case-study.md)
+- [Verification](docs/verification.md)
+- [Architecture diagram](docs/architecture.svg)
+- [Portfolio case study](https://mohamed-abderrehmane-portfolio.wry-dog-0796.chatgpt.site/projects/exchange-request-platform/)

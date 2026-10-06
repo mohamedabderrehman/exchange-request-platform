@@ -1,19 +1,32 @@
-# الإعداد
+# الإعداد الكامل
 
-استخدم PHP 8.1 مع fileinfo ودوال الصورة وcURL للإرسال الفعلي. شغّل php -S 127.0.0.1:8085؛ العرض مفعّل افتراضياً. صدّر متغيرات البيئة لتفعيل المزود. لا تدخل معلومات مالية حقيقية في العرض. الأسعار والنشاط التسويقي أمثلة فقط.
+استخدم PHP 8.1 أو أحدث مع fileinfo وفك الصور وcURL. العرض مفعل افتراضياً دون مفتاح Telegram. صدّر قيم .env.example للوضع الحي مع DEMO_MODE=0 وبيانات Telegram جديدة في الخادم فقط. اختر العملات من currency-options.json وأدخل مستلمين وصور إثبات اصطناعية فقط؛ الأسعار الثابتة تقديرات عرض.
 
-## التفاصيل والأوامر
+## الأوامر
 
-Use PHP 8.1+ with fileinfo, image functions and cURL for live mode. Run `php -S 127.0.0.1:8085`; demo mode defaults to enabled. Export environment variables to enable live provider delivery. Do not use real financial details in the public demo. The static conversion display is illustrative and generated marketing activity is not transaction evidence.
+```sh
+php -S 127.0.0.1:8085
+# Open /Exchange.html; separate terminal:
+python tools/check-syntax.py
+python tools/check-demo.py
+```
 
-## متغيرات تقرأها الشيفرة
+## جرد الإعداد
 
-| Variable | Source consumer | Configuration rule |
+| المتغير | موضع الاستخدام | قاعدة الإعداد |
 |---|---|---|
-| `DEMO_MODE` | `post.php` | Use the local example/source default; adapt to your disposable environment. |
-| `TELEGRAM_BOT_TOKEN` | `post.php` | Supply privately when enabling its integration; no secret default. |
-| `TELEGRAM_CHAT_ID` | `post.php` | Use the local example/source default; adapt to your disposable environment. |
+| `DEMO_MODE` | `post.php` | استخدم المثال المحلي أو افتراضي الشيفرة واضبطه للبيئة المؤقتة. |
+| `TELEGRAM_BOT_TOKEN` | `post.php` | قدم القيمة بصورة خاصة عند تفعيل التكامل، دون سر افتراضي. |
+| `TELEGRAM_CHAT_ID` | `post.php` | استخدم المثال المحلي أو افتراضي الشيفرة واضبطه للبيئة المؤقتة. |
 
-لا تُحمَّل ملفات الأمثلة تلقائياً. تستخدم وحدات dotenv الملف حيث تكون مهيأة، ويستخدم PHP بيئة العملية أو الاستضافة. افصل المزودين عن العرض وأنشئ أسراراً جديدة واحفظها خارج المستودع.
+ليست كل متغيرات الجرد إلزامية. تحدد الفقرة الأولى قيم التشغيل الأساسية، وتلزم قيم المزود للتكامل الحي المفعل فقط. تتجاوز DEMO_API_URL هدف الفحص المحلي عند دعمه. لا توجه أوامر التعبئة والاستعادة والفحص لقاعدة إنتاج. لا تُحمّل أمثلة البيئة نفسها تلقائياً؛ جهز بيئة العملية أو dotenv حيث يستخدمه المكون.
 
-## أوامر المكونات
+## المكونات
+
+| المكون | المسؤولية |
+|---|---|
+| `Home.html` | الواجهة العامة والتتبع التاريخي |
+| `Exchange.html` | نموذج الطلب وضغط الصور |
+| `post.php` | فحص الطلب وحدود المزود |
+| `currency-options.json` | أسماء ورموز العملات المدعومة فعلياً |
+| `logos/` | صور وشعارات المزودين الموجودة |

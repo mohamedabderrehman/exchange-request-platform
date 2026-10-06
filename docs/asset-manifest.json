@@ -1,0 +1,107 @@
+[
+  {
+    "path": "docs/architecture.svg",
+    "sha256": "71b0c8898a856d9f542b2a3abbd778ad479fb20cc6d597fd10edafe41dbf747a",
+    "scope": "Actual synthetic application capture"
+  },
+  {
+    "path": "logos/asiapay.png",
+    "sha256": "ff556dd02255cb16e379969c79ec23b842efc216c30b1ca6350b45cdf718a5b6",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/Bitcoin.png",
+    "sha256": "8bbb2f1591ebd75c97c33edbc5fd171de89b771bb051345b4e0efb323ca19129",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/crtasia.jpg",
+    "sha256": "163aac34accea05fbea05a05d97ac928f815755b9893e4316cafaf89d169df72",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/crtkorek.jpg",
+    "sha256": "55d73544d31555c4e97447ebe9e6725d9d502ab57e20d0cc3cb396f276df3fa4",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/crtzain.png",
+    "sha256": "845d9d9b5961b6cc06517ed3c14ba24471c7df6fd3556b92d5207771f8c6e959",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/facebook.png",
+    "sha256": "728ed8c0b948375c0a41baf538f92d181baa84a3215eab584fa5ac4b933f119a",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/fastpay.png",
+    "sha256": "ad465c025039e5c704bc04e61aa62cdf7b4438826474633449bc6dd4d0c58e67",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/fib.jpg",
+    "sha256": "c3bf2434909bfbd82d63b5f4b906e70da8642e0be27378e44932cf5aa9c329a3",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/fun.png",
+    "sha256": "2fb28bf4f53cd9652426681875a77348163922984da709eaec6e08b657dd1ae0",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/logo.png",
+    "sha256": "c5b8f1048c22c36e0e1190b186397658be81fb7844fad4f583fff62b4eedeb2a",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/master.png",
+    "sha256": "86cf8fb67f5ba36fd4a8fffdfc82fa39501a751eb5ebbe296309be9ba4fe87ca",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/payeer.png",
+    "sha256": "9f83620f305dae06c45ff852dc8ff4b706c349d227ab4a8b42ae22b5250bf4be",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/rafidian.png",
+    "sha256": "8166eb8c950304e1ba389250cc3503ba73640bfacad0f9d0c2e7a4b796697c0f",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/TIB.png",
+    "sha256": "3e07873bdc9f79a2d2e039b0f160d599947765114f68e9c57096bc419ff8ee39",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/usdt.png",
+    "sha256": "8371e1ce9692df74ce5d13b1e7a9586db7b6d95f01ade280b6f83e427745a470",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/zaincash.png",
+    "sha256": "cd787765d0f1c95104e543c0ffa87bc624e69504e6b4bd21af9df017eda1c603",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/احمد-علي.jpg",
+    "sha256": "eb33299e31f81fdf966d7a0c47941dd6931097c297d06f7cb88f0947aefff55a",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "logos/عماد-تقني.jpg",
+    "sha256": "a8fbb427297670e47e7185e451d25dc142a7af2ac14c20f352b3fb5a75a9a09e",
+    "scope": "Original supplied application asset; third-party rights are separate from source MIT"
+  },
+  {
+    "path": "docs/screenshots/desktop.jpg",
+    "sha256": "80048bd4b032ebb5b0300f1aa190a4e5d2128716fba6ddff1b4f60bbf1e7e92e",
+    "scope": "Actual synthetic application capture"
+  },
+  {
+    "path": "docs/screenshots/mobile.jpg",
+    "sha256": "346e36453c133f76832ea016626c89b05042d0fa6b80745e775abbb796729dd7",
+    "scope": "Actual synthetic application capture"
+  }
+]
