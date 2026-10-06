@@ -111,3 +111,5 @@ The receipt identifies request intake, not completed financial execution. Public
 - [Verification](docs/verification.md)
 - [Architecture diagram](docs/architecture.svg)
 - [Portfolio case study](https://mohamed-abderrehmane-portfolio.hillock-factual9mupt.chatgpt.site/projects/exchange-request-platform/)
+
+- [Engineering details and implementation lessons](docs/engineering-notes.md)
