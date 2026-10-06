@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تبادل العملات الرقمية - دينكو. حول عملاتك بسهولة وأمان.">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>تبادل العملات - دينكو</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logos/logo.png">
+</head>
+<body>
+<div style="background:#fef3c7;color:#111;text-align:center;padding:12px" role="status">عرض توضيحي فقط. لا تدخل معلومات مالية حقيقية. الأسعار والنشاط أمثلة وليست بيانات سوق مباشرة.</div>
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Header -->
+    <header class="glass-dark fixed top-0 left-0 right-0 z-50 p-4">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="Home.html" class="btn-secondary flex items-center gap-2">
+                <i class="fas fa-arrow-right"></i>
+                <span class="hidden sm:inline">العودة للرئيسية</span>
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <img src="logos/logo.png" alt="دينكو" class="w-10 h-10 rounded-xl" style="border: 2px solid var(--primary-cyan);">
+                <h1 class="text-lg font-bold gradient-text">تبادل العملات</h1>
+            </div>
+            
+            <div class="w-20 sm:w-32"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Progress Steps -->
+            <div class="progress-steps animate-fade-in">
+                <div class="step active" data-step="1">
+                    <div class="step-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <span>اختر العملات</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2">
+                    <div class="step-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <span>أدخل المبلغ</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3">
+                    <div class="step-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <span>إرسال الطلب</span>
+                </div>
+            </div>
+
+            <!-- Exchange Rate Display -->
+            <section class="exchange-rate animate-fade-in text-center">
+                <div class="flex items-center justify-center gap-2 mb-3">
+                    <span class="pulse-dot"></span>
+                    <h2 class="text-lg font-bold">سعر الصرف الحالي</h2>
+                </div>
+                <div class="rate-value text-3xl">1 USD = 1,470 IQD</div>
+                <p class="text-gray-400 text-sm mt-2">يتم تحديث الأسعار يومياً بناءً على السوق</p>
+            </section>
+
+            <!-- Exchange Form -->
+            <div class="card-modern animate-slide-in">
+                <form id="exchangeForm" class="space-y-6">
+                    
+                    <!-- From Currency -->
+                    <div class="form-group">
+                        <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                            <i class="fas fa-arrow-up text-blue-400"></i>
+                            <span class="text-blue-400">العملة المرسلة</span>
+                        </label>
+                        <div class="dropdown-modern" id="fromCurrencyDropdown">
+                            <div class="dropdown-select" id="fromCurrencySelect">
+                                <span class="text-gray-400">اختر العملة المرسلة</span>
+                                <i class="fas fa-chevron-down text-blue-400"></i>
+                            </div>
+                            <div class="dropdown-options" id="fromCurrencyOptions">
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/crtasia.jpg">
+                                    <img src="logos/crtasia.jpg" class="currency-logo"> كرت اسياسيل (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/crtzain.png">
+                                    <img src="logos/crtzain.png" class="currency-logo"> كرت زين (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/crtkorek.jpg">
+                                    <img src="logos/crtkorek.jpg" class="currency-logo"> كرت كورك (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/master.png" data-type="qicard">
+                                    <img src="logos/master.png" class="currency-logo"> كي كارد Qi Card (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/master.png" data-type="superqi">
+                                    <img src="logos/master.png" class="currency-logo"> سوبر كي Super Qi (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="USD" data-rate="1470" data-image="logos/usdt.png">
+                                    <img src="logos/usdt.png" class="currency-logo"> يو اس دي تي TRC (USD)
+                                </div>
+                                <div class="dropdown-option" data-value="USD" data-rate="1470" data-image="logos/bitcoin.png">
+                                    <img src="logos/bitcoin.png" class="currency-logo"> بتكوين (USD)
+                                </div>
+                                <div class="dropdown-option" data-value="USD" data-rate="1470" data-image="logos/payeer.png">
+                                    <img src="logos/payeer.png" class="currency-logo"> بايير (USD)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To Currency -->
+                    <div class="form-group">
+                        <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                            <i class="fas fa-arrow-down text-green-400"></i>
+                            <span class="text-green-400">العملة المستلمة</span>
+                        </label>
+                        <div class="dropdown-modern" id="toCurrencyDropdown">
+                            <div class="dropdown-select" id="toCurrencySelect">
+                                <span class="text-gray-400">اختر العملة المستلمة</span>
+                                <i class="fas fa-chevron-down text-green-400"></i>
+                            </div>
+                            <div class="dropdown-options" id="toCurrencyOptions">
+                                <div class="dropdown-option" data-value="USD" data-rate="1470" data-image="logos/usdt.png">
+                                    <img src="logos/usdt.png" class="currency-logo"> يو اس دي تي TRC (USD)
+                                </div>
+                                <div class="dropdown-option" data-value="USD" data-rate="1470" data-image="logos/bitcoin.png">
+                                    <img src="logos/bitcoin.png" class="currency-logo"> بتكوين (USD)
+                                </div>
+                                <div class="dropdown-option" data-value="USD" data-rate="1470" data-image="logos/payeer.png">
+                                    <img src="logos/payeer.png" class="currency-logo"> بايير (USD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/zaincash.png">
+                                    <img src="logos/zaincash.png" class="currency-logo"> زين كاش (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/asiapay.png">
+                                    <img src="logos/asiapay.png" class="currency-logo"> أسيا باي (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/fastpay.png">
+                                    <img src="logos/fastpay.png" class="currency-logo"> فاست باي (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/master.png" data-type="qicard">
+                                    <img src="logos/master.png" class="currency-logo"> كي كارد Qi Card (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/master.png" data-type="superqi">
+                                    <img src="logos/master.png" class="currency-logo"> سوبر كي Super Qi (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/fib.jpg">
+                                    <img src="logos/fib.jpg" class="currency-logo"> البنك العراقي الأول (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/TIB.png">
+                                    <img src="logos/TIB.png" class="currency-logo"> بنك الطيف (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/rafidian.png">
+                                    <img src="logos/rafidian.png" class="currency-logo"> ماستر الرافدين وكي كارد (IQD)
+                                </div>
+                                <div class="dropdown-option" data-value="IQD" data-rate="1470" data-image="logos/master.png">
+                                    <img src="logos/master.png" class="currency-logo"> ماستر كارد وفيزا كارد (IQD)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amount Input -->
+                    <div class="form-group">
+                        <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                            <i class="fas fa-coins text-purple-400"></i>
+                            <span class="text-purple-400">المبلغ المرسل</span>
+                        </label>
+                        <input type="number" id="amount" class="input-modern" placeholder="أدخل المبلغ المرسل" disabled>
+                        <div class="error-message hidden" id="amountError">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            الحد الأدنى للدينار العراقي هو 10,000
+                        </div>
+                    </div>
+
+                    <!-- Converted Amount -->
+                    <div class="form-group">
+                        <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                            <i class="fas fa-calculator text-cyan-400"></i>
+                            <span class="text-cyan-400">المبلغ المستلم</span>
+                        </label>
+                        <input type="text" id="convertedAmount" class="input-modern" readonly placeholder="المبلغ المستلم (يحسب تلقائياً)" disabled style="background: rgba(0, 245, 212, 0.05); border-color: var(--primary-cyan);">
+                    </div>
+
+                    <!-- Extra Fields for Crypto -->
+                    <div class="extra-fields hidden" id="extraFields">
+                        <div class="border-t border-border-color pt-6 mt-6">
+                            <div class="bg-blue-900 bg-opacity-20 border border-blue-500 rounded-2xl p-5 mb-6">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-info-circle text-blue-400 text-xl mt-1"></i>
+                                    <div>
+                                        <p class="text-blue-300 font-semibold mb-1">تعليمات الإرسال</p>
+                                        <p class="additionall-note text-sm text-blue-200"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                                    <i class="fas fa-image text-blue-400"></i>
+                                    <span class="text-blue-400">صورة العملية (إثبات التحويل)</span>
+                                </label>
+                                <div class="upload-area" id="upload-area-1" style="position: relative;">
+                                    <input type="file" id="file-upload-1" accept="image/*" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; cursor: pointer; z-index: 10;">
+                                    <div class="upload-content text-center" id="upload-content-1">
+                                        <i class="fas fa-cloud-upload-alt text-5xl text-blue-400 mb-4"></i>
+                                        <p class="text-lg font-medium mb-2">اسحب وأفلت الصورة هنا</p>
+                                        <p class="text-gray-400 text-sm">أو اضغط لاختيار الملف</p>
+                                        <p class="text-xs text-blue-400 mt-3">PNG, JPG, WEBP (أقصى 10MB)</p>
+                                    </div>
+                                    <div class="upload-loading hidden" id="upload-loading-1">
+                                        <div class="spinner"></div>
+                                        <p class="text-cyan-400 font-medium">جاري معالجة الصورة...</p>
+                                    </div>
+                                </div>
+                                <div id="image-preview-1" class="hidden mt-4 text-center"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                                    <i class="fas fa-wallet text-green-400"></i>
+                                    <span class="text-green-400">عنوان محفظتك (لاستلام العملة)</span>
+                                </label>
+                                <input type="text" id="walletAddress" class="input-modern" placeholder="أدخل عنوان محفظتك">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Extra Fields for Cards -->
+                    <div class="extra-fields hidden" id="cardFields">
+                        <div class="border-t border-border-color pt-6 mt-6">
+                            <div class="form-group">
+                                <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                                    <i class="fas fa-credit-card text-green-400"></i>
+                                    <span class="text-green-400">صورة الكرت (اختياري)</span>
+                                </label>
+                                <div class="upload-area" id="upload-area-2" style="position: relative;">
+                                    <input type="file" id="file-upload-2" accept="image/*" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; cursor: pointer; z-index: 10;">
+                                    <div class="upload-content text-center" id="upload-content-2">
+                                        <i class="fas fa-credit-card text-5xl text-green-400 mb-4"></i>
+                                        <p class="text-lg font-medium mb-2">اسحب وأفلت صورة الكرت هنا</p>
+                                        <p class="text-gray-400 text-sm">أو اضغط لاختيار الملف</p>
+                                    </div>
+                                    <div class="upload-loading hidden" id="upload-loading-2">
+                                        <div class="spinner"></div>
+                                        <p class="text-green-400 font-medium">جاري معالجة الصورة...</p>
+                                    </div>
+                                </div>
+                                <div id="image-preview-2" class="hidden mt-4 text-center"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                                    <i class="fas fa-hashtag text-purple-400"></i>
+                                    <span class="text-purple-400">كود الكرت (بدلاً من الصورة)</span>
+                                </label>
+                                <input type="text" id="cardCode" class="input-modern" placeholder="أدخل كود الكرت">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="flex items-center gap-2 text-lg font-semibold mb-3">
+                                    <i class="fas fa-wallet text-green-400"></i>
+                                    <span class="text-green-400">عنوان محفظتك (لاستلام العملة)</span>
+                                </label>
+                                <input type="text" id="walletAddress1" class="input-modern" placeholder="أدخل عنوان محفظتك">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-primary w-full text-xl py-5" id="calculateBtn" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال الطلب
+                    </button>
+                </form>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="card-modern mt-6 animate-fade-in">
+                <div class="text-center">
+                    <div class="w-14 h-14 mx-auto bg-yellow-900 bg-opacity-30 rounded-2xl flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-yellow-400">ملاحظات مهمة</h3>
+                    <p class="text-gray-300 leading-relaxed text-sm">
+                        تتوفر محافظ محلية مثل: البنك العراقي الأول، ماستر الرافدين، بنك الطيف، ماستر كارد وكي كارد، وزين كاش، وأسيا باي، وفيزا كارد. نستقبل منها ونحول لعملات رقمية. الحد الأدنى: 10,000 دينار عراقي.
+                    </p>
+                    <p class="text-gray-300 mt-4 text-sm">
+                        للتفاصيل تواصل معنا عبر 
+                        <a href="https://www.instagram.com/deinkow_" target="_blank" class="text-pink-400 hover:text-pink-300 transition-colors font-semibold">
+                            <i class="fab fa-instagram"></i>
+                            انستغرام
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-md"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+            <div class="loading-spinner mb-6">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold gradient-text mb-3" id="loadingTitle">جاري إرسال الطلب</h3>
+            <p class="text-gray-400" id="loadingText">يرجى الانتظار...</p>
+            <div class="loading-progress mt-4">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="text-sm text-gray-500 mt-2" id="progressText">0%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success/Error Message Popup -->
+    <div id="messagePopup" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 glass-dark p-8 rounded-3xl text-center max-w-md mx-4 animate-scale-in">
+            <div id="messageIcon" class="text-7xl mb-6"></div>
+            <h3 id="messageTitle" class="text-2xl font-bold mb-4"></h3>
+            <p id="messageText" class="text-gray-300 mb-6 text-lg"></p>
+            <button onclick="closeMessage()" class="btn-primary px-8">
+                <i class="fas fa-check"></i>
+                حسناً
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="Home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="Exchange.html" class="nav-item active">
+            <i class="fas fa-exchange-alt"></i>
+            <span>تبادل</span>
+        </a>
+        <a href="Home.html#track" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>تتبع</span>
+        </a>
+        <a href="https://www.instagram.com/deinkow_" target="_blank" class="nav-item">
+            <i class="fab fa-instagram"></i>
+            <span>تواصل</span>
+        </a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // ============================================
+        // Toast Notification System
+        // ============================================
+        function showToast(type, title, message, duration = 5000) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const icons = {
+                success: 'fa-check-circle',
+                error: 'fa-exclamation-triangle',
+                warning: 'fa-exclamation-circle'
+            };
+            
+            toast.innerHTML = `
+                <div class="toast-icon">
+                    <i class="fas ${icons[type] || icons.success}"></i>
+                </div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('removing');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
+
+        // ============================================
+        // Progress Steps Management
+        // ============================================
+        function updateProgressSteps(step) {
+            const steps = document.querySelectorAll('.step');
+            const lines = document.querySelectorAll('.step-line');
+            
+            steps.forEach((s, index) => {
+                const stepNum = index + 1;
+                if (stepNum < step) {
+                    s.classList.add('completed');
+                    s.classList.remove('active');
+                } else if (stepNum === step) {
+                    s.classList.add('active');
+                    s.classList.remove('completed');
+                } else {
+                    s.classList.remove('active', 'completed');
+                }
+            });
+            
+            lines.forEach((line, index) => {
+                if (index < step - 1) {
+                    line.classList.add('active');
+                } else {
+                    line.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // Main Form Logic
+        // ============================================
+        $(document).ready(function () {
+            // Dropdown functionality
+            $(".dropdown-select").on("click", function () {
+                const options = $(this).next(".dropdown-options");
+                const icon = $(this).find("i");
+                
+                $(".dropdown-options").not(options).removeClass("active");
+                $(".dropdown-select").not(this).removeClass("open");
+                
+                options.toggleClass("active");
+                $(this).toggleClass("open");
+                
+                icon.css("transform", $(this).hasClass("open") ? "rotate(180deg)" : "rotate(0deg)");
+            });
+
+            // Select currency option
+            $(".dropdown-option").on("click", function () {
+                const selectedCurrency = $(this).data("value");
+                const selectedRate = $(this).data("rate");
+                const selectedImage = $(this).data("image");
+                const selectedType = $(this).data("type") || null;
+                const currencyLabel = $(this).text().trim();
+                const dropdown = $(this).closest(".dropdown-modern");
+
+                dropdown.find(".dropdown-select").html(`
+                    <img src="${selectedImage}" class="currency-logo">
+                    <span>${currencyLabel}</span>
+                    <i class="fas fa-chevron-down"></i>
+                `);
+                
+                dropdown.find(".dropdown-select").data({
+                    rate: selectedRate,
+                    currency: selectedCurrency,
+                    image: selectedImage,
+                    type: selectedType
+                });
+
+                dropdown.data({
+                    rate: selectedRate,
+                    currency: selectedCurrency,
+                    image: selectedImage,
+                    type: selectedType
+                });
+
+                $(this).closest(".dropdown-options").removeClass("active");
+                $(this).closest(".dropdown-options").prev(".dropdown-select").removeClass("open");
+
+                dropdown.siblings(".field-error").remove();
+                
+                updateFormFields();
+                checkFormFields();
+                
+                // Update progress when both currencies selected
+                const fromCurrency = $("#fromCurrencyDropdown").data("currency");
+                const toCurrency = $("#toCurrencyDropdown").data("currency");
+                if (fromCurrency && toCurrency) {
+                    updateProgressSteps(2);
+                }
+            });
+
+            // Close dropdowns when clicking outside
+            $(document).on("click", function(e) {
+                if (!$(e.target).closest(".dropdown-modern").length) {
+                    $(".dropdown-options").removeClass("active");
+                    $(".dropdown-select").removeClass("open");
+                    $(".dropdown-select i").css("transform", "rotate(0deg)");
+                }
+            });
+
+            // Amount input handling
+            $("#amount").on("input", function () {
+                const amount = parseFloat($(this).val());
+                const fromCurrency = $("#fromCurrencyDropdown").data("currency");
+                const toCurrency = $("#toCurrencyDropdown").data("currency");
+
+                $("#amountError").addClass("hidden");
+                $(this).siblings(".field-error").remove();
+                $(this).removeClass("invalid");
+
+                if (!isNaN(amount) && amount > 0) {
+                    let convertedAmount = 0;
+                    let currencySymbol = "";
+
+                    if (fromCurrency === "USD" && toCurrency === "IQD") {
+                        convertedAmount = amount * 1470;
+                        currencySymbol = " IQD";
+                    } else if (fromCurrency === "IQD" && toCurrency === "USD") {
+                        if (amount < 10000) {
+                            $("#amountError").removeClass("hidden");
+                            $(this).addClass("invalid");
+                            $("#convertedAmount").val('');
+                            checkFormFields();
+                            return;
+                        }
+                        convertedAmount = amount / 1470;
+                        currencySymbol = " USD";
+                    } else if (fromCurrency === "USD" && toCurrency === "USD") {
+                        convertedAmount = amount - 3;
+                        currencySymbol = " USD";
+                    } else if (fromCurrency === "IQD" && toCurrency === "IQD") {
+                        if (amount < 10000) {
+                            $("#amountError").removeClass("hidden");
+                            $(this).addClass("invalid");
+                            $("#convertedAmount").val('');
+                            checkFormFields();
+                            return;
+                        }
+                        convertedAmount = amount - 2000;
+                        currencySymbol = " IQD";
+                    } else {
+                        convertedAmount = amount;
+                        currencySymbol = toCurrency === "USD" ? " USD" : " IQD";
+                    }
+
+                    // Animate the converted amount
+                    animateValue($("#convertedAmount")[0], 0, convertedAmount, 400, currencySymbol);
+                    $(this).addClass("valid");
+                    
+                    // Update progress
+                    updateProgressSteps(3);
+                } else {
+                    $("#convertedAmount").val('');
+                    $(this).removeClass("valid");
+                }
+
+                checkFormFields();
+            });
+
+            // Animated value counter
+            function animateValue(element, start, end, duration, suffix) {
+                const range = end - start;
+                const startTime = performance.now();
+                
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const current = start + (range * easeOutQuart);
+                    
+                    element.value = new Intl.NumberFormat('en-US', {
+                        minimumFractionDigits: suffix.includes('USD') ? 2 : 0,
+                        maximumFractionDigits: suffix.includes('USD') ? 2 : 0
+                    }).format(current) + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+                
+                requestAnimationFrame(update);
+            }
+
+            // Form validation on input
+            $("#cardCode, #walletAddress, #walletAddress1").on("input keyup paste", function() {
+                $(this).siblings(".field-error").remove();
+                if ($(this).val().trim()) {
+                    $(this).addClass("valid").removeClass("invalid");
+                } else {
+                    $(this).removeClass("valid");
+                }
+                checkFormFields();
+            });
+
+            // File upload handling
+            setupFileUpload("#file-upload-1", "#upload-area-1", "#image-preview-1");
+            setupFileUpload("#file-upload-2", "#upload-area-2", "#image-preview-2");
+
+            // Form submission
+            $("#exchangeForm").on("submit", function(e) {
+                e.preventDefault();
+                if (!validateForm()) return;
+                submitForm();
+            });
+            
+            $("#calculateBtn").on("click", function(e) {
+                e.preventDefault();
+                if (!validateForm()) return;
+                submitForm();
+            });
+        });
+
+        function updateFormFields() {
+            const fromCurrency = $("#fromCurrencyDropdown").data("currency");
+            const toCurrency = $("#toCurrencyDropdown").data("currency");
+            const fromCurrencyType = $("#fromCurrencyDropdown").data("type");
+            const toCurrencyType = $("#toCurrencyDropdown").data("type");
+
+            if (fromCurrency && toCurrency) {
+                $("#amount").prop("disabled", false).focus();
+                
+                if (fromCurrency === "USD") {
+                    $("#extraFields").removeClass("hidden");
+                    $("#cardFields").addClass("hidden");
+                    
+                    let walletText = "ارسل المبلغ إلى المحفظة التالية:";
+                    const fromImage = $("#fromCurrencyDropdown").data("image");
+                    
+                    if (fromImage && fromImage.includes("usdt")) {
+                        walletText = "ارسل USDT (TRC20) إلى المحفظة: <br><code style='color: var(--primary-cyan); font-family: monospace;'>TAMhBcQ7FPCc85Vgn8wqkqEjnjrFabT7kn</code>";
+                    } else if (fromImage && fromImage.includes("bitcoin")) {
+                        walletText = "ارسل Bitcoin إلى المحفظة: <br><code style='color: var(--primary-cyan); font-family: monospace;'>14VhpuQBW97HqHzsczcDF5sRJ95jysVHDd</code>";
+                    } else if (fromImage && fromImage.includes("payeer")) {
+                        walletText = "ارسل إلى حساب Payeer: <br><code style='color: var(--primary-cyan); font-family: monospace;'>P1127257910</code>";
+                    }
+                    
+                    $(".additionall-note").html(walletText);
+                } else if (fromCurrencyType === "qicard" || fromCurrencyType === "superqi") {
+                    // When sending from Qi Card or Super Qi
+                    $("#extraFields").removeClass("hidden");
+                    $("#cardFields").addClass("hidden");
+                    
+                    let walletText = "";
+                    if (fromCurrencyType === "qicard") {
+                        walletText = `
+                            <strong>ارسل المبلغ إلى كي كارد Qi Card:</strong><br>
+                            <span class="text-gray-300">رقم الحساب:</span> <code style='color: var(--primary-cyan); font-family: monospace;'>7125205158</code><br>
+                            <span class="text-gray-300">اسم المستلم:</span> <span class="text-white">AMMAR / عمار</span>
+                        `;
+                    } else {
+                        walletText = `
+                            <strong>ارسل المبلغ إلى سوبر كي Super Qi:</strong><br>
+                            <span class="text-gray-300">رقم الموبايل:</span> <code style='color: var(--primary-cyan); font-family: monospace;'>7710945282</code><br>
+                            <span class="text-gray-300">اسم المستلم:</span> <span class="text-white">AMMAR / عمار</span>
+                        `;
+                    }
+                    $(".additionall-note").html(walletText);
+                } else {
+                    $("#extraFields").addClass("hidden");
+                    $("#cardFields").removeClass("hidden");
+                }
+                
+                // Show payment info for Qi Card or Super Qi when selected as receiving option
+                updateReceiverInfo(toCurrencyType);
+            } else {
+                $("#amount").prop("disabled", true);
+                $("#extraFields, #cardFields").addClass("hidden");
+            }
+        }
+        
+        function updateReceiverInfo(type) {
+            // Remove existing receiver info
+            $("#receiverInfo").remove();
+            
+            let receiverHtml = "";
+            
+            if (type === "qicard") {
+                receiverHtml = `
+                    <div id="receiverInfo" class="bg-green-900 bg-opacity-20 border rounded-2xl p-5 mb-4" style="border-color: var(--primary-cyan);">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-credit-card text-green-400 text-xl mt-1"></i>
+                            <div>
+                                <p class="text-green-300 font-semibold mb-2">معلومات الاستلام - كي كارد Qi Card</p>
+                                <p class="text-sm text-gray-300 mb-1">
+                                    <span class="text-gray-400">رقم الحساب:</span>
+                                    <code style="color: var(--primary-cyan); font-family: monospace; font-size: 1.1em;"> 7125205158</code>
+                                </p>
+                                <p class="text-sm text-gray-300">
+                                    <span class="text-gray-400">اسم المستلم:</span>
+                                    <span class="text-white font-semibold"> AMMAR / عمار</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === "superqi") {
+                receiverHtml = `
+                    <div id="receiverInfo" class="bg-purple-900 bg-opacity-20 border rounded-2xl p-5 mb-4" style="border-color: var(--primary-violet);">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-mobile-alt text-purple-400 text-xl mt-1"></i>
+                            <div>
+                                <p class="text-purple-300 font-semibold mb-2">معلومات الاستلام - سوبر كي Super Qi</p>
+                                <p class="text-sm text-gray-300 mb-1">
+                                    <span class="text-gray-400">رقم الموبايل:</span>
+                                    <code style="color: var(--primary-cyan); font-family: monospace; font-size: 1.1em;"> 7710945282</code>
+                                </p>
+                                <p class="text-sm text-gray-300">
+                                    <span class="text-gray-400">اسم المستلم:</span>
+                                    <span class="text-white font-semibold"> AMMAR / عمار</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (receiverHtml) {
+                // Insert after the "To Currency" dropdown
+                $("#toCurrencyDropdown").closest(".form-group").after(receiverHtml);
+            }
+        }
+
+        function checkFormFields() {
+            const fromCurrency = $("#fromCurrencyDropdown").data("currency");
+            const toCurrency = $("#toCurrencyDropdown").data("currency");
+            const amount = parseFloat($("#amount").val());
+            const convertedAmount = $("#convertedAmount").val();
+
+            $(".field-error").remove();
+
+            if (fromCurrency === "IQD" && !isNaN(amount) && amount < 10000) {
+                $("#calculateBtn").prop("disabled", true);
+                return;
+            }
+
+            if (!fromCurrency || !toCurrency || !amount || !convertedAmount) {
+                $("#calculateBtn").prop("disabled", true);
+                return;
+            }
+
+            let hasRequiredField = false;
+
+            if ($("#extraFields").is(":visible")) {
+                const hasImage = $("#file-upload-1")[0].files.length > 0;
+                const walletAddress = $("#walletAddress").val().trim();
+                hasRequiredField = hasImage && walletAddress !== "";
+            } else if ($("#cardFields").is(":visible")) {
+                const hasImage = $("#file-upload-2")[0].files.length > 0;
+                const cardCode = $("#cardCode").val().trim();
+                const walletAddress1 = $("#walletAddress1").val().trim();
+                hasRequiredField = (hasImage || cardCode !== "") && walletAddress1 !== "";
+            }
+
+            $("#calculateBtn").prop("disabled", !hasRequiredField);
+            
+            if (hasRequiredField) {
+                $("#calculateBtn").removeClass("opacity-50");
+            } else {
+                $("#calculateBtn").addClass("opacity-50");
+            }
+        }
+
+        function setupFileUpload(inputId, areaId, previewId) {
+            const input = $(inputId);
+            const area = $(areaId);
+            const preview = $(previewId);
+            
+            // Get clean IDs without the # symbol
+            const areaIdClean = areaId.replace('#', '');
+            const loadingId = areaIdClean.replace('upload-area-', 'upload-loading-');
+            const contentId = areaIdClean.replace('upload-area-', 'upload-content-');
+
+            // Handle file selection via input
+            input.on("change", function(e) {
+                e.stopPropagation();
+                console.log("File selected:", this.files);
+                if (this.files && this.files.length > 0) {
+                    handleFileSelect(this.files[0], preview, area, loadingId, contentId);
+                }
+            });
+
+            // Drag and drop
+            area.on("dragover", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).addClass("dragover");
+            });
+
+            area.on("dragleave", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).removeClass("dragover");
+            });
+
+            area.on("drop", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).removeClass("dragover");
+                
+                const files = e.originalEvent.dataTransfer.files;
+                if (files && files.length > 0) {
+                    // Set files to input for form submission
+                    const dt = new DataTransfer();
+                    dt.items.add(files[0]);
+                    input[0].files = dt.files;
+                    handleFileSelect(files[0], preview, area, loadingId, contentId);
+                }
+            });
+        }
+
+        function handleFileSelect(file, preview, area, loadingId, contentId) {
+            console.log("handleFileSelect called", file.name, loadingId, contentId);
+            
+            // Validate file type
+            if (!file.type.startsWith("image/")) {
+                showToast('error', 'خطأ', 'يرجى اختيار ملف صورة صالح (PNG, JPG, WEBP)');
+                return;
+            }
+            
+            // Validate file size (max 10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                showToast('error', 'الملف كبير جداً', 'الحد الأقصى لحجم الصورة هو 10 ميجابايت');
+                return;
+            }
+
+            // Show loading state
+            const contentEl = document.getElementById(contentId);
+            const loadingEl = document.getElementById(loadingId);
+            
+            console.log("Content element:", contentEl);
+            console.log("Loading element:", loadingEl);
+            
+            if (contentEl) contentEl.classList.add("hidden");
+            if (loadingEl) loadingEl.classList.remove("hidden");
+            area.addClass("uploading");
+
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                console.log("File read complete");
+                // Small delay for UX
+                setTimeout(() => {
+                    const fileSize = (file.size / 1024).toFixed(1);
+                    const areaId = area.attr('id');
+                    const previewId = preview.attr('id');
+                    
+                    preview.html(`
+                        <div class="relative inline-block">
+                            <img src="${e.target.result}" class="upload-preview mx-auto" style="max-width: 250px; border-radius: 16px; border: 2px solid var(--primary-cyan);">
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center" style="box-shadow: 0 0 10px rgba(0,255,136,0.5);">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                        </div>
+                        <p class="text-center text-green-400 mt-4 font-semibold text-lg">
+                            <i class="fas fa-check-circle"></i>
+                            تم رفع الصورة بنجاح
+                        </p>
+                        <p class="text-gray-400 text-sm mt-1">${file.name} (${fileSize} KB)</p>
+                        <button type="button" class="btn-secondary mt-4" onclick="removeFile('${areaId}', '${previewId}')">
+                            <i class="fas fa-trash"></i> إزالة الصورة
+                        </button>
+                    `);
+                    
+                    preview.removeClass("hidden").show();
+                    area.addClass("has-file").removeClass("uploading");
+                    
+                    if (loadingEl) loadingEl.classList.add("hidden");
+                    if (contentEl) contentEl.style.display = "none";
+                    
+                    showToast('success', 'تم الرفع', 'تم رفع الصورة بنجاح');
+                    checkFormFields();
+                }, 300);
+            };
+            
+            reader.onerror = function(error) {
+                console.error("File read error:", error);
+                area.removeClass("uploading");
+                if (loadingEl) loadingEl.classList.add("hidden");
+                if (contentEl) contentEl.classList.remove("hidden");
+                showToast('error', 'خطأ', 'فشل في قراءة الملف');
+            };
+            
+            reader.readAsDataURL(file);
+        }
+
+        function removeFile(areaId, previewId) {
+            const area = document.getElementById(areaId);
+            const preview = document.getElementById(previewId);
+            const inputId = areaId.replace('upload-area-', 'file-upload-');
+            const contentId = areaId.replace('upload-area-', 'upload-content-');
+            const contentEl = document.getElementById(contentId);
+            const inputEl = document.getElementById(inputId);
+            
+            if (inputEl) inputEl.value = '';
+            if (preview) {
+                preview.classList.add("hidden");
+                preview.innerHTML = '';
+            }
+            if (area) {
+                area.classList.remove("has-file");
+            }
+            if (contentEl) {
+                contentEl.classList.remove("hidden");
+                contentEl.style.display = "";
+            }
+            
+            checkFormFields();
+            showToast('success', 'تم الحذف', 'تم إزالة الصورة');
+        }
+
+        function validateForm() {
+            const fromCurrency = $("#fromCurrencyDropdown").data("currency");
+            const toCurrency = $("#toCurrencyDropdown").data("currency");
+            const amount = parseFloat($("#amount").val());
+            
+            let isValid = true;
+            let missingFields = [];
+            
+            if (!fromCurrency) {
+                missingFields.push("العملة المرسلة");
+                isValid = false;
+            }
+            if (!toCurrency) {
+                missingFields.push("العملة المستلمة");
+                isValid = false;
+            }
+            if (!amount || isNaN(amount)) {
+                missingFields.push("المبلغ المرسل");
+                isValid = false;
+            }
+            
+            if ($("#extraFields").is(":visible")) {
+                if ($("#file-upload-1")[0].files.length === 0) {
+                    missingFields.push("صورة العملية");
+                    isValid = false;
+                }
+                if (!$("#walletAddress").val().trim()) {
+                    missingFields.push("عنوان المحفظة");
+                    isValid = false;
+                }
+            } else if ($("#cardFields").is(":visible")) {
+                if ($("#file-upload-2")[0].files.length === 0 && !$("#cardCode").val().trim()) {
+                    missingFields.push("صورة الكرت أو كود الكرت");
+                    isValid = false;
+                }
+                if (!$("#walletAddress1").val().trim()) {
+                    missingFields.push("عنوان المحفظة");
+                    isValid = false;
+                }
+            }
+            
+            if (!isValid) {
+                showToast('error', 'بيانات ناقصة', 'يرجى إكمال: ' + missingFields.join('، '));
+            }
+            
+            return isValid;
+        }
+
+        function submitForm() {
+            const btn = $("#calculateBtn");
+            btn.prop("disabled", true).addClass("btn-loading").html('');
+            
+            // Show loading overlay
+            showLoadingOverlay("جاري تجهيز الطلب...", "يرجى الانتظار");
+            updateProgress(10);
+
+            const fromCurrencyText = $("#fromCurrencySelect").text().replace(/[^\u0600-\u06FF\s\(\)]/g, '').trim() || "غير محدد";
+            const toCurrencyText = $("#toCurrencySelect").text().replace(/[^\u0600-\u06FF\s\(\)]/g, '').trim() || "غير محدد";
+            const fromCurrencyData = $("#fromCurrencyDropdown").data();
+            const toCurrencyData = $("#toCurrencyDropdown").data();
+            
+            const amount = $("#amount").val();
+            const convertedAmount = $("#convertedAmount").val();
+            const walletAddress = $("#walletAddress").val() || $("#walletAddress1").val() || "";
+            const cardCode = $("#cardCode").val() || "";
+            const randomNumber = Math.floor(10000 + Math.random() * 90000);
+
+            let fileInput = null;
+            if ($("#extraFields").is(":visible") && $("#file-upload-1")[0].files.length > 0) {
+                fileInput = $("#file-upload-1")[0];
+            } else if ($("#cardFields").is(":visible") && $("#file-upload-2")[0].files.length > 0) {
+                fileInput = $("#file-upload-2")[0];
+            }
+
+            if (fileInput && fileInput.files[0]) {
+                updateLoadingText("جاري ضغط الصورة...", "تحسين جودة الصورة");
+                updateProgress(30);
+                
+                compressImage(fileInput.files[0], function(compressedFile) {
+                    updateProgress(50);
+                    sendFormData(compressedFile);
+                });
+            } else {
+                updateProgress(50);
+                sendFormData(null);
+            }
+
+            function sendFormData(imageFile) {
+                updateLoadingText("جاري إرسال الطلب...", "الاتصال بالخادم");
+                updateProgress(60);
+                
+                const formData = new FormData();
+                formData.append("fromCurrencyText", fromCurrencyText);
+                formData.append("toCurrencyText", toCurrencyText);
+                formData.append("amount", amount);
+                formData.append("convertedAmount", convertedAmount);
+                formData.append("walletAddress", walletAddress);
+                formData.append("cardCode", cardCode);
+                formData.append("randomNumber", randomNumber);
+                formData.append("fromCurrency", fromCurrencyData.currency || "");
+                formData.append("toCurrency", toCurrencyData.currency || "");
+                formData.append("timestamp", new Date().toISOString());
+                
+                if (imageFile) {
+                    formData.append("uploadedImage", imageFile);
+                }
+
+                $.ajax({
+                    url: "post.php",
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    timeout: 30000,
+                    xhr: function() {
+                        const xhr = new window.XMLHttpRequest();
+                        xhr.upload.addEventListener("progress", function(e) {
+                            if (e.lengthComputable) {
+                                const percentComplete = Math.round((e.loaded / e.total) * 30) + 60;
+                                updateProgress(percentComplete);
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    success: function (response) {
+                        if (response.status !== "success") { hideLoadingOverlay(); btn.prop("disabled", false); showMessage("error", "خطأ", response.message); return; }
+                        updateProgress(100);
+                        updateLoadingText("تم بنجاح!", "جاري إغلاق...");
+                        
+                        setTimeout(() => {
+                            hideLoadingOverlay();
+                            showMessage("success", "تم بنجاح!", `رقم العملية: ${response.operation_number}`);
+                            showToast('success', 'تم الإرسال', 'سيتم معالجة طلبك قريباً');
+                            resetForm();
+                        }, 800);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", error, xhr.responseText);
+                        hideLoadingOverlay();
+                        showMessage("error", "حدث خطأ!", "الرجاء المحاولة لاحقاً أو التواصل معنا عبر انستغرام");
+                        btn.prop("disabled", false).removeClass("btn-loading").html('<i class="fas fa-paper-plane"></i> إرسال الطلب');
+                        checkFormFields();
+                    }
+                });
+            }
+        }
+        
+        // Loading Overlay Functions
+        function showLoadingOverlay(title, text) {
+            $("#loadingTitle").text(title || "جاري التحميل...");
+            $("#loadingText").text(text || "يرجى الانتظار");
+            $("#progressFill").css("width", "0%");
+            $("#progressText").text("0%");
+            $("#loadingOverlay").removeClass("hidden");
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideLoadingOverlay() {
+            $("#loadingOverlay").addClass("hidden");
+            document.body.style.overflow = '';
+        }
+        
+        function updateLoadingText(title, text) {
+            if (title) $("#loadingTitle").text(title);
+            if (text) $("#loadingText").text(text);
+        }
+        
+        function updateProgress(percent) {
+            $("#progressFill").css("width", percent + "%");
+            $("#progressText").text(percent + "%");
+        }
+
+        function compressImage(file, callback) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            img.onload = function() {
+                const maxWidth = 1200;
+                const maxHeight = 1200;
+                
+                let width = img.width;
+                let height = img.height;
+                
+                if (width > height) {
+                    if (width > maxWidth) {
+                        height = height * (maxWidth / width);
+                        width = maxWidth;
+                    }
+                } else {
+                    if (height > maxHeight) {
+                        width = width * (maxHeight / height);
+                        height = maxHeight;
+                    }
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                canvas.toBlob(function(blob) {
+                    const compressedFile = new File([blob], file.name, {
+                        type: 'image/jpeg',
+                        lastModified: Date.now()
+                    });
+                    callback(compressedFile);
+                }, 'image/jpeg', 0.7);
+            };
+            
+            img.src = URL.createObjectURL(file);
+        }
+
+        function resetForm() {
+            $("#amount, #convertedAmount, #walletAddress, #walletAddress1, #cardCode").val('');
+            $("#file-upload-1, #file-upload-2").val('');
+            $("#image-preview-1, #image-preview-2").addClass("hidden").html('');
+            
+            // Reset upload areas using native DOM
+            ['1', '2'].forEach(num => {
+                const area = document.getElementById(`upload-area-${num}`);
+                const content = document.getElementById(`upload-content-${num}`);
+                const loading = document.getElementById(`upload-loading-${num}`);
+                
+                if (area) area.classList.remove("has-file", "uploading");
+                if (content) {
+                    content.classList.remove("hidden");
+                    content.style.display = "";
+                }
+                if (loading) loading.classList.add("hidden");
+            });
+            
+            $("#calculateBtn").prop("disabled", true).removeClass("btn-loading").html('<i class="fas fa-paper-plane"></i> إرسال الطلب');
+            $("#amountError").addClass("hidden");
+            $(".field-error").remove();
+            $(".input-modern").removeClass("valid invalid");
+            
+            // Remove receiver info box
+            $("#receiverInfo").remove();
+            
+            $("#fromCurrencyDropdown, #toCurrencyDropdown").find(".dropdown-select").html(`
+                <span class="text-gray-400">اختر العملة</span>
+                <i class="fas fa-chevron-down"></i>
+            `);
+            $("#fromCurrencyDropdown, #toCurrencyDropdown").removeData();
+            $("#extraFields, #cardFields").addClass("hidden");
+            $("#amount").prop("disabled", true);
+            
+            updateProgressSteps(1);
+        }
+
+        function showMessage(type, title, text) {
+            const popup = $("#messagePopup");
+            const icon = $("#messageIcon");
+            const messageTitle = $("#messageTitle");
+            const messageText = $("#messageText");
+
+            if (type === "success") {
+                icon.html('<i class="fas fa-check-circle text-green-400"></i>');
+                messageTitle.removeClass("text-red-400").addClass("text-green-400");
+            } else {
+                icon.html('<i class="fas fa-exclamation-triangle text-red-400"></i>');
+                messageTitle.removeClass("text-green-400").addClass("text-red-400");
+            }
+
+            messageTitle.text(title);
+            messageText.text(text);
+            popup.removeClass("hidden");
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMessage() {
+            $("#messagePopup").addClass("hidden");
+            document.body.style.overflow = '';
+        }
+
+        // Close popup on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMessage();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دينكو - منصة تبادل العملات الرقمية الموثوقة في العراق. تحويل بتكوين، USDT، وعملات محلية بأفضل الأسعار.">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>دينكو - منصة تبادل العملات الرقمية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logos/logo.png">
+</head>
+<body>
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Header -->
+    <header class="glass-dark fixed top-0 left-0 right-0 z-50 p-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Menu Button -->
+            <button class="menu-button" onclick="toggleDropdown()" aria-label="القائمة">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+
+            <!-- Logo & Title -->
+            <div class="flex items-center gap-4">
+                <img src="logos/logo.png" alt="دينكو" class="w-14 h-14 rounded-2xl shadow-lg" style="border: 2px solid var(--primary-cyan);">
+                <div class="text-right">
+                    <h1 class="text-2xl font-bold gradient-text">دينكو</h1>
+                    <p class="text-sm text-gray-400">منصة تبادل العملات الرقمية</p>
+                </div>
+            </div>
+
+            <!-- Status Indicator -->
+            <div class="status-indicator glass p-3 rounded-xl hidden md:block">
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-gray-300">أوقات العمل: 8:00 ص - 11:00 م</span>
+                    <div class="status status-online flex items-center">
+                        <span class="status-dot"></span>
+                        <span class="text-sm font-medium">متصل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdown" class="fixed inset-0 z-40 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" onclick="toggleDropdown()"></div>
+        <div class="absolute top-24 left-4 right-4 glass-dark p-6 max-w-sm mx-auto animate-scale-in">
+            <button class="close-button absolute top-4 left-4" onclick="toggleDropdown()" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center space-y-4 mt-8">
+                <a href="Exchange.html" class="btn-primary w-full">
+                    <i class="fas fa-exchange-alt"></i>
+                    تبادل العملات
+                </a>
+                <a href="privacy.html" class="btn-secondary w-full flex items-center justify-center gap-2">
+                    <i class="fas fa-shield-alt"></i>
+                    سياسة الخصوصية
+                </a>
+                <a href="returns.html" class="btn-secondary w-full flex items-center justify-center gap-2">
+                    <i class="fas fa-undo"></i>
+                    سياسة الإرجاع
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto space-y-8 animate-stagger">
+            
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 bg-green-900 bg-opacity-30 border border-green-500 rounded-full px-4 py-2 mb-6">
+                        <span class="pulse-dot"></span>
+                        <span class="text-sm font-medium text-green-400">نحن متصلون الآن</span>
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">ابدأ صرف العملة</span>
+                        <br>الآن!
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                        منصتك الموثوقة لتبادل العملات الرقمية في العراق. بتكوين، يو اس دي تي، وجملة من العملات المحلية والعالمية بأفضل الأسعار!
+                    </p>
+                    
+                    <!-- Currency Icons -->
+                    <div class="flex justify-center items-center gap-6 mb-8">
+                        <img src="logos/Bitcoin.png" alt="Bitcoin" class="w-16 h-16 rounded-2xl shadow-lg floating" style="border: 2px solid var(--border-color);">
+                        <img src="logos/usdt.png" alt="USDT" class="w-16 h-16 rounded-2xl shadow-lg floating" style="animation-delay: 0.3s; border: 2px solid var(--border-color);">
+                        <img src="logos/TIB.png" alt="TIB" class="w-16 h-16 rounded-2xl shadow-lg floating" style="animation-delay: 0.6s; border: 2px solid var(--border-color);">
+                    </div>
+                    
+                    <a href="Exchange.html" class="btn-primary text-xl px-12 py-4">
+                        <i class="fas fa-rocket"></i>
+                        بدء الصرف
+                    </a>
+                </div>
+            </section>
+
+            <!-- Live Exchange Rate -->
+            <section class="exchange-rate">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <span class="pulse-dot"></span>
+                    <h3 class="text-xl font-bold">سعر الصرف المباشر</h3>
+                </div>
+                <div class="flex items-center justify-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <img src="logos/usdt.png" alt="USD" class="w-10 h-10 rounded-full">
+                        <span class="text-lg font-semibold">1 USD</span>
+                    </div>
+                    <i class="fas fa-arrows-alt-h text-2xl text-cyan-400" style="animation: bounce-horizontal 1.5s ease infinite;"></i>
+                    <div class="flex items-center gap-3">
+                        <span class="rate-value text-4xl">1,470</span>
+                        <span class="text-lg text-gray-400">IQD</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 mt-4">يتم تحديث الأسعار يومياً بناءً على السوق</p>
+            </section>
+
+            <!-- Recent Orders Ticker -->
+            <section class="card-modern card-accent">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-900 bg-opacity-30 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-blue-400"></i>
+                    </div>
+                    أحدث عمليات الطلب
+                </h3>
+                <div class="ticker">
+                    <div class="ticker-content" id="transaction-container">
+                        <!-- Transactions will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Currency Reserves -->
+            <section class="card-modern card-accent">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-green-900 bg-opacity-30 flex items-center justify-center">
+                        <i class="fas fa-vault text-green-400"></i>
+                    </div>
+                    احتياطي العملات
+                </h3>
+                <div class="currency-grid" id="reserveContainer">
+                    <!-- Reserves will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Customer Reviews -->
+            <section class="card-modern card-accent">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-yellow-900 bg-opacity-30 flex items-center justify-center">
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    تقييمات العملاء
+                </h3>
+                <div class="reviews-carousel">
+                    <div class="review-card" id="reviewCard">
+                        <!-- Reviews will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order Tracking -->
+            <section class="card-modern card-accent" id="track">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-900 bg-opacity-30 flex items-center justify-center">
+                        <i class="fas fa-search text-purple-400"></i>
+                    </div>
+                    تتبع الطلب الخاص بك
+                </h3>
+                <div class="max-w-md mx-auto">
+                    <div class="flex gap-3 mb-4">
+                        <input type="text" id="orderId" placeholder="أدخل رقم تعريف الطلب" class="input-modern flex-1">
+                        <button onclick="trackOrder()" class="btn-primary px-6">
+                            <i class="fas fa-search"></i>
+                            تتبع
+                        </button>
+                    </div>
+                    <div id="result" class="text-center font-bold text-lg"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Instagram Button (Desktop) -->
+    <div class="instagram-btn floating">
+        <a href="https://www.instagram.com/deinkow_" target="_blank" rel="noopener noreferrer" aria-label="انستغرام">
+            <i class="fab fa-instagram text-white text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="Home.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="Exchange.html" class="nav-item">
+            <i class="fas fa-exchange-alt"></i>
+            <span>تبادل</span>
+        </a>
+        <a href="#track" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>تتبع</span>
+        </a>
+        <a href="https://www.instagram.com/deinkow_" target="_blank" class="nav-item">
+            <i class="fab fa-instagram"></i>
+            <span>تواصل</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="footer-content">
+                <div class="footer-item">
+                    <i class="fas fa-map-marker-alt text-blue-400"></i>
+                    <span>بغداد - البنوك</span>
+                </div>
+                <div class="footer-item">
+                    <i class="fas fa-envelope text-green-400"></i>
+                    <span>support@deinkow.com</span>
+                </div>
+                <div class="footer-item">
+                    <i class="fas fa-clock text-purple-400"></i>
+                    <span>8:00 ص - 11:00 م</span>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 mt-6">© 2024 دينكو. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // ============================================
+        // Toast Notification System
+        // ============================================
+        function showToast(type, title, message, duration = 5000) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const icons = {
+                success: 'fa-check-circle',
+                error: 'fa-exclamation-triangle',
+                warning: 'fa-exclamation-circle'
+            };
+            
+            toast.innerHTML = `
+                <div class="toast-icon">
+                    <i class="fas ${icons[type] || icons.success}"></i>
+                </div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('removing');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
+
+        // ============================================
+        // Toggle Dropdown Menu
+        // ============================================
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                dropdown.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // ============================================
+        // Status Indicator
+        // ============================================
+        function updateStatus() {
+            const now = new Date().getHours();
+            const statusElement = document.querySelector('.status');
+            
+            if (statusElement) {
+                if (now >= 8 && now <= 23) {
+                    statusElement.className = 'status status-online flex items-center';
+                    statusElement.innerHTML = `
+                        <span class="status-dot"></span>
+                        <span class="text-sm font-medium">متصل</span>
+                    `;
+                } else {
+                    statusElement.className = 'status status-offline flex items-center';
+                    statusElement.innerHTML = `
+                        <span class="status-dot"></span>
+                        <span class="text-sm font-medium">غير متصل</span>
+                    `;
+                }
+            }
+        }
+
+        // ============================================
+        // Currency Reserves
+        // ============================================
+        function generateRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function updateReserves() {
+            const reserves = [
+                { id: "asiapay", name: "آسيا باي", prefix: "IQD", min: 9000000, max: 15000000, icon: "logos/asiapay.png" },
+                { id: "altaifpay", name: "بنك الطيف", prefix: "IQD", min: 10000000, max: 30000000, icon: "logos/TIB.png" },
+                { id: "usdt", name: "يو اس دي تي", prefix: "USDT", min: 5000, max: 20000, icon: "logos/usdt.png" },
+                { id: "bitcoin", name: "بتكوين", prefix: "USD", min: 4000, max: 15000, icon: "logos/bitcoin.png" },
+                { id: "payeer", name: "بايير", prefix: "USD", min: 3000, max: 10000, icon: "logos/payeer.png" },
+                { id: "fib", name: "البنك العراقي الأول", prefix: "IQD", min: 10000000, max: 25000000, icon: "logos/fib.jpg" },
+                { id: "zaincash", name: "زين كاش", prefix: "IQD", min: 8000000, max: 20000000, icon: "logos/zaincash.png" },
+                { id: "qicard", name: "كي كارد", prefix: "IQD", min: 5000000, max: 15000000, icon: "logos/master.png" },
+                { id: "superqi", name: "سوبر كي", prefix: "IQD", min: 5000000, max: 12000000, icon: "logos/master.png" }
+            ];
+
+            const reserveContainer = document.getElementById("reserveContainer");
+            if (reserveContainer) {
+                reserveContainer.innerHTML = "";
+                reserves.forEach((reserve, index) => {
+                    const value = generateRandomNumber(reserve.min, reserve.max);
+                    const formattedValue = new Intl.NumberFormat('en-US').format(value);
+                    const currencyItem = `
+                        <div class="currency-item" style="animation-delay: ${index * 0.1}s;">
+                            <img src="${reserve.icon}" alt="${reserve.name}">
+                            <p class="font-bold text-sm mb-2">${reserve.name}</p>
+                            <p class="text-lg font-bold gradient-text-static">${formattedValue}</p>
+                            <p class="text-xs text-gray-400 mt-1">${reserve.prefix}</p>
+                        </div>`;
+                    reserveContainer.innerHTML += currencyItem;
+                });
+            }
+        }
+
+        // ============================================
+        // Recent Transactions
+        // ============================================
+        const currencies = [
+            { send: "كرت اسياسيل", receive: "يو اس دي تي", sendLogo: "logos/crtasia.jpg", receiveLogo: "logos/usdt.png", sendType: "IQD", receiveType: "USD" },
+            { send: "كرت كورك", receive: "بتكوين", sendLogo: "logos/crtkorek.jpg", receiveLogo: "logos/bitcoin.png", sendType: "IQD", receiveType: "USD" },
+            { send: "كرت زين", receive: "زين كاش", sendLogo: "logos/crtzain.png", receiveLogo: "logos/zaincash.png", sendType: "IQD", receiveType: "IQD" },
+            { send: "يو اس دي تي", receive: "بايير", sendLogo: "logos/usdt.png", receiveLogo: "logos/payeer.png", sendType: "USD", receiveType: "USD" },
+            { send: "بتكوين", receive: "اسيا باي", sendLogo: "logos/bitcoin.png", receiveLogo: "logos/asiapay.png", sendType: "USD", receiveType: "IQD" },
+            { send: "بايير", receive: "البنك العراقي الاول", sendLogo: "logos/payeer.png", receiveLogo: "logos/fib.jpg", sendType: "USD", receiveType: "IQD" },
+            { send: "ماستر الرافدين", receive: "فاست باي", sendLogo: "logos/rafidian.png", receiveLogo: "logos/fastpay.png", sendType: "IQD", receiveType: "IQD" },
+            { send: "زين كاش", receive: "ماستر كارد", sendLogo: "logos/zaincash.png", receiveLogo: "logos/master.png", sendType: "IQD", receiveType: "IQD" },
+            { send: "كي كارد", receive: "يو اس دي تي", sendLogo: "logos/master.png", receiveLogo: "logos/usdt.png", sendType: "IQD", receiveType: "USD" },
+            { send: "سوبر كي", receive: "بتكوين", sendLogo: "logos/master.png", receiveLogo: "logos/bitcoin.png", sendType: "IQD", receiveType: "USD" },
+            { send: "بايير", receive: "كي كارد", sendLogo: "logos/payeer.png", receiveLogo: "logos/master.png", sendType: "USD", receiveType: "IQD" },
+            { send: "يو اس دي تي", receive: "سوبر كي", sendLogo: "logos/usdt.png", receiveLogo: "logos/master.png", sendType: "USD", receiveType: "IQD" }
+        ];
+
+        function getRandomAmount(currencyType) {
+            if (currencyType === 'USD') {
+                return (Math.random() * (3000 - 20) + 20).toFixed(2);
+            } else {
+                return Math.floor(Math.random() * (3000000 - 10000 + 1)) + 10000;
+            }
+        }
+
+        function getRandomTime() {
+            const randomHour = Math.floor(Math.random() * 24) + 1;
+            return `منذ ${randomHour} ساعة`;
+        }
+
+        function getRandomStars() {
+            const starsCount = Math.floor(Math.random() * 2) + 4; // 4-5 stars
+            return "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
+        }
+
+        function createRandomTransaction() {
+            const randomCurrency = currencies[Math.floor(Math.random() * currencies.length)];
+            const amountSend = getRandomAmount(randomCurrency.sendType);
+            let amountReceive;
+            const numericAmountSend = parseFloat(amountSend);
+
+            if (randomCurrency.sendType === "USD" && randomCurrency.receiveType === "USD") {
+                amountReceive = (numericAmountSend - 3).toFixed(2);
+            } else if (randomCurrency.sendType === "USD" && randomCurrency.receiveType === "IQD") {
+                amountReceive = Math.floor(numericAmountSend * 1470);
+            } else if (randomCurrency.sendType === "IQD" && randomCurrency.receiveType === "USD") {
+                amountReceive = (numericAmountSend / 1470).toFixed(2);
+            } else {
+                amountReceive = numericAmountSend - 2000;
+            }
+
+            const timeInfo = getRandomTime();
+
+            return `
+                <div class="inline-block mx-6 text-center">
+                    <div class="bg-card-bg border border-border-color rounded-2xl p-5 inline-block min-w-[280px]" style="backdrop-filter: blur(10px);">
+                        <div class="text-lg font-bold mb-2 text-gray-300">*****</div>
+                        <div class="text-yellow-400 mb-3 text-lg">${getRandomStars()}</div>
+                        <div class="border-t border-border-color my-3"></div>
+                        <div class="flex items-center justify-between mb-3 gap-3">
+                            <span class="text-gray-400 text-sm">أرسل</span>
+                            <img src="${randomCurrency.sendLogo}" alt="${randomCurrency.send}" class="w-9 h-9 rounded-lg" style="border: 1px solid var(--border-color);">
+                            <span class="font-medium text-sm">${randomCurrency.send}</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3 gap-3">
+                            <span class="text-gray-400 text-sm">تلقى</span>
+                            <img src="${randomCurrency.receiveLogo}" alt="${randomCurrency.receive}" class="w-9 h-9 rounded-lg" style="border: 1px solid var(--border-color);">
+                            <span class="font-medium text-sm">${randomCurrency.receive}</span>
+                        </div>
+                        <div class="border-t border-border-color my-3"></div>
+                        <div class="flex items-center justify-center gap-3 mb-3">
+                            <span class="text-base font-bold">${new Intl.NumberFormat().format(amountSend)} ${randomCurrency.sendType}</span>
+                            <i class="fas fa-arrow-left text-cyan-400"></i>
+                            <span class="text-base font-bold gradient-text-static">${new Intl.NumberFormat().format(amountReceive)} ${randomCurrency.receiveType}</span>
+                        </div>
+                        <div class="text-xs text-gray-500">${timeInfo}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function fillTransactions() {
+            const container = document.getElementById('transaction-container');
+            if (container) {
+                container.innerHTML = '';
+                for (let i = 0; i < 6; i++) {
+                    container.innerHTML += createRandomTransaction();
+                }
+            }
+        }
+
+        // ============================================
+        // Customer Reviews
+        // ============================================
+        const customersData = [
+            { img: 'logos/طلال-جمال.jpeg', name: 'طلال جمال', title: 'صاحب محل موبايلات', review: 'تجربتي معهم مميزة جداً، الخدمة رائعة والاستجابة سريعة. أوصي بالتعامل معهم بدون تردد.', rating: '★★★★★' },
+            { img: 'logos/احمد-علي.jpg', name: 'أحمد علي', title: 'متداول', review: 'عن تجربة عندهم سرعة وموثوقية عالية انصحكم بيها، تعامل سلس وتعاملت سابقا بمبالغ ضخمة كوني متداول، دينكو هي الخيار الامثل الك كعراقي', rating: '★★★★★' },
+            { img: 'logos/عماد-تقني.jpg', name: 'عماد تقني', title: 'مبرمج', review: 'خدمة العملاء ممتازة، وفريق العمل لديهم خبرة كبيرة. أنصح بشدة بالتعامل مع دينكو.', rating: '★★★★☆' }
+        ];
+
+        let currentIndex = -1;
+
+        function updateCardContent() {
+            const card = document.getElementById('reviewCard');
+            if (!card) return;
+
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % customersData.length;
+                const currentCustomer = customersData[currentIndex];
+                
+                card.innerHTML = `
+                    <img src="${currentCustomer.img}" alt="${currentCustomer.name}">
+                    <h4 class="text-xl font-bold mt-4 mb-2">${currentCustomer.name}</h4>
+                    <p class="text-gray-400 mb-3">${currentCustomer.title}</p>
+                    <p class="text-gray-300 leading-relaxed mb-4">${currentCustomer.review}</p>
+                    <div class="text-yellow-400 text-2xl">${currentCustomer.rating}</div>
+                `;
+                card.style.opacity = 1;
+                card.style.transform = 'translateY(0)';
+            }, 400);
+        }
+
+        // ============================================
+        // Order Tracking
+        // ============================================
+        async function trackOrder() {
+            const orderId = document.getElementById('orderId').value.trim();
+            const resultDiv = document.getElementById('result');
+            
+            if (orderId === "") {
+                showToast('warning', 'تنبيه', 'يرجى إدخال رقم تعريف الطلب!');
+                document.getElementById('orderId').classList.add('invalid');
+                setTimeout(() => document.getElementById('orderId').classList.remove('invalid'), 500);
+                return;
+            }
+            
+            resultDiv.innerHTML = '<i class="fas fa-spinner fa-spin text-cyan-400"></i>';
+            
+            try {
+                const response = await fetch('nums.txt');
+                if (!response.ok) throw new Error('تعذر تحميل الملف');
+                const text = await response.text();
+                const validNumbers = text.split('\n').map(num => num.trim());
+                
+                setTimeout(() => {
+                    if (validNumbers.some(line => line.includes(orderId))) {
+                        resultDiv.innerHTML = `
+                            <div class="message success">
+                                <i class="fas fa-check-circle ml-2"></i>
+                                تم العثور على طلبك! انتظر 24 ساعة ليتم التحويل إليك.
+                            </div>
+                        `;
+                        showToast('success', 'تم العثور على الطلب', 'طلبك قيد المعالجة');
+                    } else {
+                        resultDiv.innerHTML = `
+                            <div class="message error">
+                                <i class="fas fa-times-circle ml-2"></i>
+                                رقم الطلب غير موجود. تأكد من الرقم وحاول مرة أخرى.
+                            </div>
+                        `;
+                        showToast('error', 'لم يتم العثور', 'رقم الطلب غير موجود');
+                    }
+                }, 800);
+            } catch (error) {
+                console.error('حدث خطأ:', error);
+                showToast('error', 'خطأ', 'حدث خطأ أثناء البحث. حاول مرة أخرى.');
+                resultDiv.innerHTML = '';
+            }
+        }
+
+        // Allow Enter key for tracking
+        document.getElementById('orderId')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                trackOrder();
+            }
+        });
+
+        // ============================================
+        // Initialize
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStatus();
+            updateReserves();
+            fillTransactions();
+            updateCardContent();
+            
+            // Auto-refresh intervals
+            setInterval(updateReserves, 3 * 60 * 60 * 1000); // Every 3 hours
+            setInterval(fillTransactions, 60 * 60 * 1000); // Every hour
+            setInterval(updateCardContent, 6000); // Every 6 seconds
+            
+            // Show welcome toast after page load
+            setTimeout(() => {
+                showToast('success', 'مرحباً بك في دينكو!', 'منصتك الموثوقة لتبادل العملات الرقمية');
+            }, 1500);
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('dropdown');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (!dropdown.classList.contains('hidden') && 
+                !dropdown.querySelector('.glass-dark').contains(event.target) && 
+                !menuButton.contains(event.target)) {
+                toggleDropdown();
+            }
+        });
+
+        // Close dropdown on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const dropdown = document.getElementById('dropdown');
+                if (!dropdown.classList.contains('hidden')) {
+                    toggleDropdown();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
