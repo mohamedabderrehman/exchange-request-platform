@@ -161,13 +161,13 @@
   },
   {
     "path": "docs/verification.ar.md",
-    "bytes": 1639,
-    "sha256": "b241b9f4d69327ac94e25080534a9a61f64bbfbfd8ef3fda2d342e3d96f75cb7"
+    "bytes": 1654,
+    "sha256": "4a931b52427ebba7cb5cb2a16971a27699e754e7205f5342bf77bc12ee10cae1"
   },
   {
     "path": "docs/verification.md",
-    "bytes": 1469,
-    "sha256": "a82a253e972a772532f82bf16f8d5c0521e4de56c6bda07cd0d263ba5c3c4b41"
+    "bytes": 1488,
+    "sha256": "6a75a3f065258a67525e863a73058723ac0bd103d02b9c30702e94a8d506d4a6"
   },
   {
     "path": "logos/Bitcoin.png",
